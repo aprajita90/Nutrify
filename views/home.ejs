@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    Hello <%= email %>
+    <section>
+        <h3>Insert Data</h3>
+        <form method="POST" action="/meals/insert">
+            <div>
+                <label>Date: </label>
+                <input type="datetime-local" name="datetime"><br/><br/>
+            </div>
+            <div>
+                <label>Meal Name: </label>
+                <input type="text" name="mealName"><br/>
+            </div>
+            <div>
+                <label>Calories: </label>
+                <input type="text" name="calorie"><br/>
+            </div>
+            <div>
+                <label>Description: </label>
+                <input type="text" name="description"><br/>
+            </div>
+            <button type="submit">Insert</button>
+        </form>
+    </section>
+    <!-- <section>
+        <h3>Get data</h3>
+        <a href="/get-data">Load Data</a>
+        <div>
+            {{# each item}}
+            <article>
+                <div>Date:{{this.datetime}}</div>
+                <div>Meal Name:{{this.mealName}}</div>
+                <div>Calories:{{this.calories}}</div>
+                <div>User_Id:{{this.user_id}}</div>
+            </article>
+            {{/each}}
+        </div>
+    </section> -->
+    <!-- <section>
+        <h3>Update Data</h3>
+        <form method="POST" action="/meals/update">
+            <div>
+                <label>Date: </label>
+                <input type="datetime" name="datetime"><br/><br/>
+            </div>
+            <div>
+                <label>Meal Name: </label>
+                <input type="text" name="mealName"><br/>
+            </div>
+            <div>
+                <label>Calories: </label>
+                <input type="text" name="calories"><br/>
+            </div>
+            <div>
+                <label>User_Id: </label>
+                <input type="text" id="user_id" name="user_id"><br/>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </section>
+    <section>
+        <h3>Delete Data</h3>
+        <form method="POST" action="/meals/delete">
+            <div>
+                <label>User_Id: </label>
+                <input type="text" id="user_id" name="user_id"><br/>
+            </div>
+            <button type="submit">Delete</button>
+        </form>
+    </section> -->
+</body>
+<form method="POST" action="/auth/signout">
+    <button type="submit">Sign Out</button>
+</form>
+</html>
