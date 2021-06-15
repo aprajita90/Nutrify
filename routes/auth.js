@@ -2,16 +2,11 @@ var router = require('express').Router();
 var authModel = require('../models/authModel');
 // var jwt = require('jsonwebtoken');
 
-// router.get('/signup', (req, res) => { // res.render - ejs, pug, jade file convert into html file
-//     res.render('signup');
-// })
-
 router.post('/signup', (req, res) => {
-    // res.end('Successfully signed up!');
      const user = req.body;
-     //console.log("user....", user)
+     console.log("user....", user)
      authModel.createUser(user, (err, data) => {
-      // console.log("user***", user);
+      console.log("user***", user);
         if (err) {
             res.json({
                 error: true,
@@ -19,7 +14,7 @@ router.post('/signup', (req, res) => {
                 message: 'Signup failed!'
             })
         } else {
-            //console.log("data", data)
+            console.log("data", data)
             res.redirect('/auth/signin');
         }
     })
@@ -84,7 +79,6 @@ router.post('/signin', (req, res) => {
 router.post('/signout', (req, res) => {
     req.session.destroy();
     res.clearCookie('connect.sid');
-    // res.json('Signed out successfully!')
     res.redirect('/auth/signin')
 }) 
 
