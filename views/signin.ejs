@@ -8,12 +8,15 @@
     <title>Login</title>
 </head>
 <body>
-    <form method="POST" action="/auth/signin">
-        <label>Email: </label>
-        <input type="email" name="email"><br/>
-        <label>Password: </label>
-        <input type="password" name="password"><br/>
-        <button type="submit">Sign in</button>
-    </form>
+    <div>
+        <form method="POST" action="/auth/signin">
+            <label>Email: </label>
+            <input type="email" name="email"><br/>
+            <label>Password: </label>
+            <input type="password" name="password"><br/>
+            <button type="submit">Sign in</button>
+        </form>
+        <a href='/auth/signup'><button id="signupbtn">Sign Up</button></a>
+    </div>
 </body>
 </html>

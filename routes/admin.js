@@ -5,5 +5,10 @@ router.get('/users', (req, res) => {
         users:[]
     })
 })
+router.get('/meals', (req, res) => {
+    res.json({
+        meals:[]
+    })
+})
 
 module.exports = router;

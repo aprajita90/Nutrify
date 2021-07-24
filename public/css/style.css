@@ -1,0 +1,373 @@
+/* html{
+    font-family: 'Roboto Slab', serif;
+} */
+/* body{
+    /* background-image: url('p3.jpg'); */
+    height: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+/* .container{
+    height:80px;
+    
+    margin-bottom: 10px;
+} */
+/* .header-name{
+    color:black;
+    float:left;
+    padding-left: 30px;
+} */
+/* .header-signin{
+    color:blue;
+    float:right;
+    padding-right: 30px;
+    align-content: center;
+    padding-top: 15px;
+} */
+/* .header-signup{
+    color:blue;
+    float:right;
+    padding-right: 30px;
+    align-content: center;
+    padding-top: 15px;
+}  */
+/* #signinbtn{
+    color:black;
+    width: 100px;
+    height:50px;
+    font-size: 20px;
+    border-radius: 5%;
+} */
+/* #signinbtn:hover{
+    color:white;
+    background-color: blue;
+} */
+/* #signupbtn{
+    color:black;
+    width: 100px;
+    height:50px;
+    font-size: 20px;
+    border-radius: 5%;
+}
+#signupbtn:hover{
+    color:white;
+    background-color: blue;
+    
+}
+.homeBody{
+    height:250px;
+    padding-top: 20px;
+} */
+/* a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    padding-left:30px;
+    padding-right: 30px;
+}
+.flex2{
+    padding-top: 30px;
+}
+.flex2 > a{
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.flex2 > a:hover{
+    color:lightblue;
+}
+#text{
+    text-align: center;
+    font-size: 30px;
+    color: red;
+}
+
+#features{
+    text-align: center;
+    padding-bottom: 60px;
+}
+#signupform{
+    margin-left: 28%;
+    margin-top: 20px;
+}
+.header-name-sign{
+    color:black;
+    padding-left: 50px;
+    text-decoration: none;
+}
+.btn{
+    width: 200px;
+    height:50px;
+    font-size: 20px;
+    border-radius: 5px;
+    color:blue;
+    font-weight: bold;
+}
+.btn:hover{
+    color:white;
+    background-color: blue;
+}
+.inputelements{
+    width:175px;
+    height:20px;
+}
+.inputelements2{
+    width:165px;
+    height:20px;
+}
+.inputelements3{
+    width:180px;
+    height:20px;
+}
+.inputelements4{
+    width:115px;
+    height:20px;
+}
+.inputelements5{
+    width:158px;
+    height:20px;
+}
+.inputelements6{
+    width:135px;
+    height:20px;
+}
+.addmealform{
+    margin-left: 43%;
+    padding-bottom: 50px;
+}
+.addmealform1{
+    margin-left: 35%;
+    padding-bottom: 50px;
+}
+.addmealform2{
+    margin-left: 55%;
+    padding-bottom: 50px;
+}
+#totalCalorie{
+    text-align: center;
+    padding: 20px 0;
+}
+progress{
+    
+    height:25px;
+    width:400px;
+    text-align: center;
+    -webkit-appearance: none;
+    margin-bottom: 50px;
+}
+progress:after {
+    content: attr(value)'%';
+}
+progress::-webkit-progress-value { 
+    background: green; 
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+#dishes-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+.dish-flex{
+    width:25%;
+    padding:0.2vw;
+    text-align: center;
+    border: 1px solid blue;
+    margin: 20px;
+}
+.dish-flex > div{
+    padding: 10px;
+    background-color: #EFEFEF;
+    border: 1px solid lightblue;
+    margin:2px;
+}
+i{
+    padding:0 20px;
+}
+i:hover{
+    cursor: pointer;
+}
+.capitalize{
+    text-transform: capitalize;
+}
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+.form-popup {
+    display: none;
+    position: absolute;
+    width:30vw;
+    border: 3px solid blue;
+    top:50%;
+    left:50%;
+    margin-left: -15vw;
+}
+.form-container {
+    max-width: 30vw;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+  }
+.form-container > input {
+    width: 80%;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    background: #f1f1f1;
+}
+.form-container > label {
+    width: 80%;
+    padding: 20px;
+    margin: 5px;
+    border: none;
+}
+.styled-table {
+    border-collapse: collapse;
+    border: 1px solid blue;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:10vh;
+    font-size: 1em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: blue;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid lightblue;
+}
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid lightblue;
+}
+.admin-edit-user{
+    text-align: center;
+}
+.user-fetch-btn{
+    color:blue;
+    width: 100px;
+    height:30px;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+.user-fetch-btn:hover{
+    color:white;
+    background-color: blue;
+}
+.user-input{
+    width:200px;
+    height:25px;
+    border-radius: 5px;
+}
+.editUserForm{
+    width:30vw;
+    border:1px solid lightblue;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding:10px;
+    margin-top: 20px;
+    margin-top: 20px;
+    display:none;
+} */
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  a {
+    color: #00B7FF;
+  }
+  
+  section {
+    float: left;
+    background: #bdc3c7;
+    padding: 10px;
+    margin: 30px;
+    width: 300px;
+    box-shadow: 3px 3px 1px #34495e;
+    min-height: 400px;
+  }
+  
+  section:first-of-type {
+    margin-left: 0;
+  }
+  
+  section:last-of-type {
+    margin-right: 0;
+  }
+  
+  section h3 {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+  }
+  
+  .insert {
+    background: #2ecc71;
+  }
+  
+  .get {
+    background: #ecf0f1;
+  }
+  
+  .update {
+    background: #3498db;
+  }
+  
+  .delete {
+    background: #e74c3c;
+  }
+  
+  .input label {
+    display: block;
+    font-weight: bold;
+    padding: 2px 0;
+  }
+  
+  input,
+  button {
+    font: inherit;
+  }
+  
+  button {
+    margin-top: 10px;
+    border: none;
+    box-shadow: 1px 1px 1px #34495e;
+    border-radius: 0;
+    background: #ecf0f1;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #bdc3c7;
+  }
+  
+  .item {
+    margin: 10px 0;
+    padding: 5px;
+    background: #95a5a6;
+    border: 1px solid black;
+  }

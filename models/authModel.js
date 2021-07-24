@@ -26,18 +26,21 @@ module.exports.createUser = createUser;
 
 const verifyUser = async (user, callback) => {
     const {email, password} = user;
-    //console.log('user detail', user);
+    console.log('user detail', user);
     try{
         const users = dbClient.get('users')
+    // console.log("user----", users)
         const dbUser = await users.findOne({ 
-            email: user.email 
+            email: user.email,
         })
+        console.log("user----", dbUser._id)
         if(dbUser){
             const isPasswordVerified = passwordHash.verify(password, dbUser.password)
             if(isPasswordVerified) {
             callback(null, {
                 success: true,
-                email
+                email:email,
+                id:dbUser._id
             }) 
             }else{
                 callback(null, {

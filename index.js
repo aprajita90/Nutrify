@@ -3,19 +3,9 @@ var app = express();
 // var jwt = require('jsonwebtoken');
 
 
-
-/*
-quering string and submitted
-get request pass the param
-post request pass the payload
-
-express provide lots of mutiple midelware. two such a middelware 
-1) express.json()
-2) express.urlencoded
-*/
-
 //Using sessions and cookie
 var session = require('express-session')
+console.log(session)
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -28,13 +18,7 @@ app.use(session({
 app.use(express.json()); //payload
 app.use(express.urlencoded({extended: false})) //params
 app.use('/static', express.static('../public'));
-// app.use(express.static('frontend/build'))
 
-/*//app.use(express.static('files')) // you can use multiple static file*/
-
-//middlewares is a function which have access to req and res objects and the next function in the request-response cycle.
-//i.e custom middleware
-//middlewares use application level and router level
 const Logger = function (req, rs, next) {
     req.requestTime = new Date();
     console.log(`[${new Date()}]: ${req.method} ${req.url}`);
@@ -43,26 +27,10 @@ const Logger = function (req, rs, next) {
 
 app.use(Logger);
 
-
-// const isAdmin = function (req, res, next) { //access req object and res object next function is cntrol the flow
-//     // if(req.session && req.session.roles.includes('ADMIN')){
-//     //     next();
-//     // }else{
-//     //     res.sendStatus(401);//403 - forbidden, 401 - Unauthorized
-//     // }
-//     next(); 
-// }
-
 app.set('views', __dirname + '/views');
 // app.set('views', '../views');
-console.log('views', __dirname + '/views')
+// console.log('views', __dirname + '/views')
 app.set('view engine', 'ejs');
-
-// //common prefix in the main file and all the sub rout move into auth.js 
-
-// const authRouter = require('../routes/auth');
-// const todosRouter = require('../routes/todos');
-// const adminRouter = require('../routes/admin');
 
 const indexRouter = require('./routes/index')
 
@@ -95,19 +63,35 @@ app.get('/', (req, res) => {
 //Using sessions and cookie - how do achive the session
 app.get('/home', (req, res) => {
     console.log('session', req.session)
-    if(req.session.email) {
-        res.render('home', { email: req.session.email })
+    if(req.session.email && req.session.id) {
+        console.log(req.session.email)
+        console.log(req.session.id)
+        res.render('home', { 
+            email: req.session.email,
+            id: req.session.id
+        })
+    } else {
+        res.sendStatus(401);
+    }
+})
+app.get('/deshboard', (req, res) => {
+    console.log('session of meals', req.session)
+    if(req.session) {
+        res.render('deshboard', { 
+            date:req.session.date,
+            mealName: req.session.mealName,
+            description:req.session.description,
+            id: req.session.id,
+            calories: req.session.calories
+           // console.log(req.session.id)
+            // console.log("meals", req.body)
+        })
     } else {
         res.sendStatus(401);
     }
 })
 
 app.use(indexRouter)
-
-
-// app.use('/auth', authRouter);
-// app.use('/todos', todosRouter)
-// app.use('/admin', isAdmin, adminRouter)
 
 app.listen(3000, () => {
     console.log('Server Listening on port 3000')

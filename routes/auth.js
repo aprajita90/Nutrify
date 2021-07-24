@@ -14,7 +14,7 @@ router.post('/signup', (req, res) => {
                 message: 'Signup failed!'
             })
         } else {
-            console.log("data", data)
+            console.log("data is user", data)
             res.redirect('/auth/signin');
         }
     })
@@ -33,6 +33,7 @@ router.post('/signin', (req, res) => {
     // console.log('req.body', req.body)
     // res.render('home', req.body);
     const user = req.body;
+    console.log("-----data",user)
     authModel.verifyUser(user, (err, data) => {
         if(err){
             res.json({
@@ -44,13 +45,18 @@ router.post('/signin', (req, res) => {
         }else{
             if(data.success) {
                 // req.session ={    //req.session.touch is not a function
-                    // email: data.email,
-                    // role: 'ADMIN'
+                //     email: data.email,
+                //     role: 'ADMIN'
                 // }
 
                 /* using session and cookie
                 here updated the session*/
+                console.log("data is user", data)
                 req.session.email = data.email;
+                console.log("req.session.email", req.session.email)
+                req.session.id = data.id;
+                console.log("req.session.id", req.session.id)
+                console.log("data.id", data.id)
                 req.session.role = 'ADMIN';
                 res.redirect('/home');
 

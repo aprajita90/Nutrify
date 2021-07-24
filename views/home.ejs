@@ -14,71 +14,52 @@
         <form method="POST" action="/meals/insert">
             <div>
                 <label>Date: </label>
-                <input type="datetime-local" name="datetime"><br/><br/>
+                <input type="date" name="date"><br/><br/>
             </div>
             <div>
                 <label>Meal Name: </label>
                 <input type="text" name="mealName"><br/>
             </div>
-            <div>
-                <label>Calories: </label>
-                <input type="text" name="calorie"><br/>
-            </div>
+            
             <div>
                 <label>Description: </label>
-                <input type="text" name="description"><br/>
+                <input id="foodItem" type="text" placeholder="Enter Meal Description" name="description" class="inputelements" required><br><br>
             </div>
+            <div>
+                <label>User_Id: </label>
+                <input type="text" name="user_id" value=<%= id %>><br/>
+            </div>
+            <div>
+                <label >Calories :</label>
+                <input id="calories" type="number" value="number" name="calorie" required>
+                <input type="button" value="Get calories from Neutrionix.com" onclick="getCalorie()" style="background-color:white; border:1px solid black"><br><br>
+            </div>
+            
             <button type="submit">Insert</button>
+
+            <script>
+                function getCalorie(){
+                    let foodItem = document.getElementById("foodItem").value;
+                    fetch("http://localhost:3000/api/fetch/fetchCalorie",{
+                        method : 'GET',
+                        headers : {
+                            'Content-Type' : 'application/json',
+                            'body' : foodItem,
+                        }
+                    }).then((response) => {
+                        return response.json();
+                    }).then((data) => {
+                        document.getElementById("calories").value=data;
+                    }).catch((err) => {
+                        console.log(err.message);
+                    })
+                };           
+            </script>
         </form>
     </section>
-    <!-- <section>
-        <h3>Get data</h3>
-        <a href="/get-data">Load Data</a>
-        <div>
-            {{# each item}}
-            <article>
-                <div>Date:{{this.datetime}}</div>
-                <div>Meal Name:{{this.mealName}}</div>
-                <div>Calories:{{this.calories}}</div>
-                <div>User_Id:{{this.user_id}}</div>
-            </article>
-            {{/each}}
-        </div>
-    </section> -->
-    <!-- <section>
-        <h3>Update Data</h3>
-        <form method="POST" action="/meals/update">
-            <div>
-                <label>Date: </label>
-                <input type="datetime" name="datetime"><br/><br/>
-            </div>
-            <div>
-                <label>Meal Name: </label>
-                <input type="text" name="mealName"><br/>
-            </div>
-            <div>
-                <label>Calories: </label>
-                <input type="text" name="calories"><br/>
-            </div>
-            <div>
-                <label>User_Id: </label>
-                <input type="text" id="user_id" name="user_id"><br/>
-            </div>
-            <button type="submit">Update</button>
-        </form>
-    </section>
-    <section>
-        <h3>Delete Data</h3>
-        <form method="POST" action="/meals/delete">
-            <div>
-                <label>User_Id: </label>
-                <input type="text" id="user_id" name="user_id"><br/>
-            </div>
-            <button type="submit">Delete</button>
-        </form>
-    </section> -->
-</body>
+   
 <form method="POST" action="/auth/signout">
     <button type="submit">Sign Out</button>
 </form>
+<body>
 </html>

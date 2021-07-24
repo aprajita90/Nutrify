@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+</body>  
+    <section>
+        <h3>Get data</h3>
+        <a href="/get-data">Load Data</a>
+        <div>
+            <% meals.forEach((meal) => { %>
+                <article class="item">
+                    <div>date: <%= meal.datetime %></div>
+                    <div>mealName: <%= meal.mealName %></div>
+                    <div>calories: <%= meal.calories %></div>
+                    <div>_id: <%= meal._id %></div>
+            <% }) %>
+            <!-- {{# each meals}} -->
+            <!-- <article class="item">
+                <div>date:{{this.datetime}}</div>
+                <div>mealName:{{this.mealName}}</div>
+                <div>calories:{{this.calories}}</div>
+                <div>_id:{{this._id}}</div>
+            </article>
+            {{/each}} -->
+        </div>
+    </section>
+    <section>
+        <h3>Update Data</h3>
+        <form method="POST" action="/meals/update">
+            <div>
+                <label>Date: </label>
+                <input type="datetime" name="datetime"><br/><br/>
+            </div>
+            <div>
+                <label>Meal Name: </label>
+                <input type="text" name="mealName"><br/>
+            </div>
+            <div>
+                <label>Calories: </label>
+                <input type="text" name="calories"><br/>
+            </div>
+            <div>
+                <label>User_Id: </label>
+                <input type="text" id="user_id" name="user_id"><br/>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </section>
+    <section>
+        <h3>Delete Data</h3>
+        <form method="POST" action="/meals/delete">
+            <div>
+                <label>User_Id: </label>
+                <input type="text" id="user_id" name="user_id"><br/>
+            </div>
+            <button type="submit">Delete</button>
+        </form>
+    </section>
+    <form method="POST" action="/meals/updateMeal">
+        <button type="submit">Update</button>
+    </form>
+    <form method="POST" action="/meals/deleteMeal">
+        <button type="submit">Delete</button>
+    </form>
+    </body>
+</html>
